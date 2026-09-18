@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Farm Ledger"
+description = "A mobile-responsive farm record keeping website foundation, ready for the application's screens and business logic to be added."
+version = "1.0.0"
+id = "artifacts/farm-ledger"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18440
+
+[services.development]
+run = "pnpm --filter @workspace/farm-ledger run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/farm-ledger", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/farm-ledger/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18440"
+BASE_PATH = "/"
