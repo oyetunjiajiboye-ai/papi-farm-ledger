@@ -56,6 +56,11 @@ export default defineConfig({
         '..',
         'attached_assets',
       ),
+      'lucide-react': path.resolve(
+        import.meta.dirname,
+        'node_modules',
+        'lucide-react',
+      ),
     },
     dedupe: ['react', 'react-dom'],
   },

@@ -431,3 +431,32 @@
     inset: -1px;
   }
 }
+
+/* Farm Ledger uses a compact inline-style surface; these rules keep its
+   existing screens usable at phone widths without changing their behavior. */
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #f4f8f4;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .farm-ledger-tabbar {
+    scrollbar-width: thin;
+  }
+
+  .farm-ledger-tabbar button {
+    flex: 0 0 auto;
+    padding-inline: 13px !important;
+  }
+}
